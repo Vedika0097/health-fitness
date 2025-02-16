@@ -1,20 +1,3 @@
-# Built with [Django App Generator](https://app-generator.dev/tools/django-generator/)
-
-Starter generated with [Django Generator](https://app-generator.dev/tools/django-generator/) (an open-source service) using **Material Design**, best practices and up-to-date Dependencies.
-In order to use the sources, follow the build instructions as presented in `Start with Docker` and `Manual Build` sections. 
-
-- [Free Support](https://app-generator.dev/ticket/create/?generated_repo=https://github.com/app-generator/django-material-1739721440) via `eMail` and `Discord`
-- **Go PRO for only $4.99/mo**. Here are the benefits:
-  - [Onboarding Kit Included](https://app-generator.dev/onboarding-kit/) - Premium Dashboards, Dynamic Django, and eCommerce CMS  
-  - **Unlock a New Premium Starter at each 4mo** (Personal License)
-  - **Premium Support** - Monday-Sunday, 3h response time. 
-  - [Django App Generator](https://app-generator.dev/tools/django-generator/) Unlimited starters, all features available.
-  - [CSV Processor](https://app-generator.dev/tools/csv-processor/) Full access (all features).
-  - [DataBase Migrator](https://app-generator.dev/tools/db-migrator/) Full access (all features).
-  - [DataBase Processor](https://app-generator.dev/tools/db-processor/) Full access (all features).
-
-<br />
-
 ## Features: 
 
 - `Up-to-date Dependencies`, Best practices
