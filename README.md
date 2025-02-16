@@ -11,22 +11,7 @@
 
 <br />
 
-## [Django Documentation](https://app-generator.dev/docs/technologies/django.html)
-
-- [Getting Started with Django](https://app-generator.dev/docs/technologies/django/index.html)
-- [Django Cheatsheet](https://app-generator.dev/docs/technologies/django/cheatsheet.html)
-- [Adding Custom Commands in Django](https://app-generator.dev/docs/technologies/django/custom-command.html)
-- [Integrate React in Django](https://app-generator.dev/docs/technologies/django/integrate-react.html)
-
-<br />
-
-## [Deploy on Render](https://app-generator.dev/docs/deployment/render/index.html) (free plan)
-
-[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy)
-
-<br /> 
-
-## [Start Project with Docker](https://app-generator.dev/docs/technologies/docker/index.html)
+## Start Project with Docker
 
 > In case the starter was built with Docker support, here is the start up CMD:
 
@@ -43,8 +28,8 @@ Once the above command is finished, the new app is started on `http://localhost:
 > Download/Clone the sources  
 
 ```bash
-$ git clone https://github.com/django-material-1739721440.git
-$ cd django-material-1739721440
+$ git clone https://github.com/Vedika0097/health-fitness.git
+$ cd health-fitness
 ```
 
 <br />
@@ -97,9 +82,3 @@ $ python manage.py shell
 ```
 
 <br />
-
-
-
-
----
-Starter built with [Django App Generator](https://app-generator.dev/tools/django-generator/) - Open-source service for developers and companies.
