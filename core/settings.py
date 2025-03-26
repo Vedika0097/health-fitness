@@ -47,14 +47,14 @@ if RENDER_EXTERNAL_HOSTNAME:
 # Application definition
 
 INSTALLED_APPS = [
-    "admin_material.apps.AdminMaterialDashboardConfig",
+    "home.apps.HomeConfig",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "home",
+    # "home",
     "django_dyn_api",
     "rest_framework",
     "rest_framework.authtoken",
@@ -98,12 +98,21 @@ WSGI_APPLICATION = "core.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
-DB_ENGINE = os.getenv("DB_ENGINE", None)
-DB_USERNAME = os.getenv("DB_USERNAME", None)
-DB_PASS = os.getenv("DB_PASS", None)
-DB_HOST = os.getenv("DB_HOST", None)
-DB_PORT = os.getenv("DB_PORT", None)
-DB_NAME = os.getenv("DB_NAME", None)
+# DB_ENGINE = os.getenv("DB_ENGINE", None)
+# DB_USERNAME = os.getenv("DB_USERNAME", None)
+# DB_PASS = os.getenv("DB_PASS", None)
+# DB_HOST = os.getenv("DB_HOST", None)
+# DB_PORT = os.getenv("DB_PORT", None)
+# DB_NAME = os.getenv("DB_NAME", None)
+
+DB_ENGINE = "mysql"
+DB_USERNAME = "root"
+DB_PASS = "root"
+DB_HOST = "localhost"
+DB_PORT = "3306"
+DB_NAME = "hfdb"
+
+
 
 if DB_ENGINE and DB_NAME and DB_USERNAME:
     DATABASES = {

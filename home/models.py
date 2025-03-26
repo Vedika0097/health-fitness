@@ -26,6 +26,18 @@ class UserProfile(models.Model):
         verbose_name_plural = _("UserProfile")
 
 #__MODELS__
+class ActivityType(models.Model):
+
+    #__ActivityType_FIELDS__
+    activityname = models.CharField(max_length=255, null=True, blank=True)
+    id = models.IntegerField(primary_key=True)
+
+    #__ActivityType_FIELDS__END
+
+    class Meta:
+        verbose_name        = _("ActivityType")
+        verbose_name_plural = _("ActivityType")
+
 class Dailyactivity(models.Model):
 
     #__Dailyactivity_FIELDS__
@@ -33,7 +45,7 @@ class Dailyactivity(models.Model):
     activitytype = models.ForeignKey(ActivityType, on_delete=models.CASCADE)
     sets = models.IntegerField(null=True, blank=True)
     hours = models.CharField(max_length=255, null=True, blank=True)
-    id = models.IntegerField(null=True, blank=True)
+    id = models.IntegerField(primary_key=True)
 
     #__Dailyactivity_FIELDS__END
 
@@ -42,24 +54,11 @@ class Dailyactivity(models.Model):
         verbose_name_plural = _("Dailyactivity")
 
 
-class Activitytype(models.Model):
-
-    #__Activitytype_FIELDS__
-    activityname = models.CharField(max_length=255, null=True, blank=True)
-    id = models.IntegerField(null=True, blank=True)
-
-    #__Activitytype_FIELDS__END
-
-    class Meta:
-        verbose_name        = _("Activitytype")
-        verbose_name_plural = _("Activitytype")
-
-
 class Nutritionlogging(models.Model):
 
     #__Nutritionlogging_FIELDS__
-    id = models.IntegerField(null=True, blank=True)
-    food name = models.CharField(max_length=255, null=True, blank=True)
+    id = models.IntegerField(primary_key=True)
+    foodname = models.CharField(max_length=255, null=True, blank=True)
     quantity = models.CharField(max_length=255, null=True, blank=True)
 
     #__Nutritionlogging_FIELDS__END
@@ -72,7 +71,7 @@ class Nutritionlogging(models.Model):
 class Fitnessplan(models.Model):
 
     #__Fitnessplan_FIELDS__
-    id = models.IntegerField(null=True, blank=True)
+    id = models.IntegerField(primary_key=True)
     caloriestoconsume = models.CharField(max_length=255, null=True, blank=True)
     caloriestoburn = models.CharField(max_length=255, null=True, blank=True)
     carbs = models.CharField(max_length=255, null=True, blank=True)

@@ -38,9 +38,11 @@ $ cd health-fitness
 
 ```bash
 $ virtualenv env
-$ source env/bin/activate
+$ source env/bin/activate // For Linux
+$ .\env\Scripts\activate.bat // For Windows
 $ pip install -r requirements.txt
 ```
+
 
 <br />
 

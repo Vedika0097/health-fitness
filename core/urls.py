@@ -13,7 +13,7 @@ except:
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("", include("admin_material.urls")),
+    path("", include("home.urls")),
     path("login/jwt/", view=obtain_auth_token),
 ]
 
