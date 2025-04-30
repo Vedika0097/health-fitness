@@ -1,6 +1,12 @@
-from django.urls import path
+from django.urls import path, include
 from home import views
 from django.contrib.auth import views as auth_views
+from rest_framework import routers
+
+
+router = routers.DefaultRouter()
+router.register(r'nutrition-metrics', views.NutritionMetricsViewSet)
+
 
 
 urlpatterns = [
@@ -19,6 +25,11 @@ urlpatterns = [
     path('icons/', views.icons, name="icons"),
     path('typography/', views.typography, name="typography"),
     path('template/', views.template, name="template"),
+    path('add-dailyactivity/', views.add_dailyactivity, name="adddailyactivity"),
+    path('add-nutritionlogging/', views.add_nutritionlogging, name="addnutritionlogging"),
+    path('add-sleeptime/', views.add_sleeptime, name="addsleeptime"),
+    path('api/', include(router.urls)),
+
 
     # Authentication
     path('accounts/register/', views.register, name='register'),

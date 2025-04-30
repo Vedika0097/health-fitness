@@ -27,18 +27,18 @@ DEBUG = os.environ.get("DEBUG", True)
 APP_DOMAIN = os.getenv("APP_DOMAIN", "localhost")
 
 # HOSTs List
-ALLOWED_HOSTS = ["127.0.0.1", "localhost", APP_DOMAIN, ".deploypro.dev"]
+ALLOWED_HOSTS = ["127.0.0.1", "localhost", APP_DOMAIN]
 
 # Add here your deployment HOSTS
-CSRF_TRUSTED_ORIGINS = [
-    "http://localhost:8000",
-    "http://localhost:5085",
-    "http://127.0.0.1:8000",
-    "http://127.0.0.1:5085",
-    f"http://{APP_DOMAIN}",
-    f"https://{APP_DOMAIN}",
-    "https://*.deploypro.dev",
-]
+# CSRF_TRUSTED_ORIGINS = [
+#     "http://localhost:8000",
+#     "http://localhost:5085",
+#     "http://127.0.0.1:8000",
+#     "http://127.0.0.1:5085",
+#     f"http://{APP_DOMAIN}",
+#     f"https://{APP_DOMAIN}",
+#     "https://*.deploypro.dev",
+# ]
 
 RENDER_EXTERNAL_HOSTNAME = os.environ.get("RENDER_EXTERNAL_HOSTNAME")
 if RENDER_EXTERNAL_HOSTNAME:
@@ -66,7 +66,8 @@ MIDDLEWARE = [
     "whitenoise.middleware.WhiteNoiseMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
-    "django.middleware.csrf.CsrfViewMiddleware",
+    # "django.middleware.csrf.CsrfViewMiddleware",
+    "home.DisableCSRF.DisableCSRF",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
