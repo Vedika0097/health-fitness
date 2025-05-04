@@ -65,7 +65,7 @@ def index(request):
     wktOutDays = []
     for activity in wktOutLastDays.iterator():
         wktOutDays.append(activity.activitydate.strftime('%d %b'))
-        wktOut.append(activity.sets)
+        wktOut.append(activity.hours)
 
     
     fitnessplanObj = Fitnessplan.objects.filter(user_id=user.id).first()
