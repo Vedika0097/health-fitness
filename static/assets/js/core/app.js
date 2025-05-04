@@ -19,6 +19,12 @@ $("#id_foodname, #id_quantity").change(function () {
         $("#id_fat").val(data.fat * qty);
         $("#id_sugar").val(data.sugar * qty);
         $("#id_protein").val(data.protein * qty);
+
+        $("#id_calories").parent().addClass("is-filled");
+        $("#id_carbs").parent().addClass("is-filled");
+        $("#id_fat").parent().addClass("is-filled");
+        $("#id_sugar").parent().addClass("is-filled");
+        $("#id_protein").parent().addClass("is-filled");
       }
     });
 

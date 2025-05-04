@@ -129,9 +129,10 @@ class FitnessDietPlan(models.Model):
 
     #__FitnessDietPlan_FIELDS__
     id = models.AutoField(primary_key=True)
-    foodname = models.ForeignKey(NutritionMetrics, on_delete=models.CASCADE)
+    # foodname = models.ForeignKey(NutritionMetrics, on_delete=models.CASCADE)
     diettype = models.CharField(max_length=255, null=True, blank=True)
-    quantity = models.CharField(max_length=255, null=True, blank=True)
+    # quantity = models.CharField(max_length=255, null=True, blank=True)
+    calories = models.IntegerField(null=True, blank=True)
 
     #__FitnessDietPlan_FIELDS__END
 

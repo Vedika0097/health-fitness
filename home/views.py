@@ -11,6 +11,8 @@ from rest_framework import permissions, viewsets
 from home.serializers import NutritionMetricsSerializer
 from rest_framework.decorators import action
 from rest_framework.response import Response
+from django.db import connection
+from collections import namedtuple
 
 
 # Create your views here.
@@ -65,6 +67,29 @@ def index(request):
         wktOutDays.append(activity.activitydate.strftime('%d %b'))
         wktOut.append(activity.sets)
 
+    
+    fitnessplanObj = Fitnessplan.objects.filter(user_id=user.id).first()
+    fitnessplanType = ""
+    fitnessPlanResult = None
+    dietTypePlanObj = None
+    if(fitnessplanObj is not None):
+        weightLossOrGain = fitnessplanObj.weightLossOrGain
+        fitnessplanType = "LOSS" if fitnessplanObj.weightLossOrGain else "GAIN"
+
+        dietTypePlanObj = FitnessDietPlan.objects.filter(diettype=fitnessplanType).first()
+
+        with connection.cursor() as cursor:
+           cursor.execute("select nl.logdate, sum(nl.calories) as calories, group_concat(nm.foodname separator ', ') as intakes " \
+           " from home_nutritionlogging nl " \
+           " left join home_nutritionmetrics nm on nl.foodname_id = nm.id " \
+           " where nl.user_id=%s and logdate >= DATE_SUB(now(), interval 7 DAY) " \
+           " group by nl.logdate order by nl.logdate desc limit 10" , [user.id])
+           desc = cursor.description
+           nt_result = namedtuple("Result", [col[0] for col in desc])
+           fitnessPlanResult = [nt_result(*row) for row in cursor.fetchall()]
+    
+    print(fitnessPlanResult)
+
     context = {
         'segment': 'dashboard',
         'todayStep': todayStep,
@@ -80,7 +105,9 @@ def index(request):
         'walkSteps': walkSteps,
         'walkDays': walkDays,
         'wktOut': wktOut,
-        'wktOutDays': wktOutDays
+        'wktOutDays': wktOutDays,
+        "fitnessPlanResult": fitnessPlanResult,
+        "dietTypePlan": dietTypePlanObj
     }
     return render(request, 'pages/index.html', context)
 
@@ -218,7 +245,11 @@ def notifications(request):
 
 @login_required(login_url="/accounts/login/")
 def profile(request):
+
+    print(request.user.first_name)
+
     context = {
+        'user': request.user,
         'segment': 'profile'
     }
     return render(request, 'pages/profile.html', context)

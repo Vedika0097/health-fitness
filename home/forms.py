@@ -36,11 +36,12 @@ class DailyActivityForm(forms.ModelForm):
         self.fields['activitytype'].label_from_instance = lambda instance: instance.activityname
 
   activitydate = forms.DateField(
-      label="Activity Date",
+      label="",
       widget=forms.DateInput(attrs={'class': 'form-control', 'type': 'date'})
   )
   activitytype = forms.ModelChoiceField(
      queryset=ActivityType.objects.all(),
+     empty_label="",
      label="Activity Type",
      widget=forms.Select(attrs={'class': 'form-control'})
   )
@@ -108,7 +109,7 @@ class SleepmonitoringForm(forms.ModelForm):
         super(SleepmonitoringForm, self).__init__(*args, **kwargs)
 
   logdate = forms.DateField(
-      label="Log Date",
+      label="",
       widget=forms.DateInput(attrs={'class': 'form-control', 'type': 'date'})
   )
   hours = forms.IntegerField(
@@ -137,11 +138,12 @@ class NutritionLoggingForm(forms.ModelForm):
         self.fields['foodname'].label_from_instance = lambda instance: instance.foodname
 
   logdate = forms.DateField(
-      label="Log Date",
+      label="",
       widget=forms.DateInput(attrs={'class': 'form-control', 'type': 'date'})
   )
   foodname = forms.ModelChoiceField(
      queryset=NutritionMetrics.objects.all(),
+     empty_label="",
      label="Food",
      widget=forms.Select(attrs={'class': 'form-control'})
   )
